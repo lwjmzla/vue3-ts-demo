@@ -13,6 +13,18 @@
           <div @click="isShow = !isShow">{{item}}</div>
         </template>
       </demo>
+
+       <setup
+        class="my-demo"
+        name="lwj"
+        :before-close="handleClose"
+        @confirm="handleConfirm"
+      >
+        <template v-slot:liSlot="{item}">
+          <div @click="isShow = !isShow">{{item}}</div>
+        </template>
+        <div>lwjjjj</div>
+      </setup>
     </div>
     <div class="block">
       <span class="demonstration">Picker with quick options</span>
@@ -44,11 +56,13 @@
 
 import { defineComponent, ref, shallowRef, onMounted, nextTick, provide } from 'vue';
 import demo from '@/components/demo.vue';
+import setup from '@/components/setup.vue';
 import { ElMessageBox } from 'element-plus';
 export default defineComponent({
   name: 'About',
   components: {
-    demo
+    demo,
+    setup
   },
   setup () {
     const value1 = ref('');
