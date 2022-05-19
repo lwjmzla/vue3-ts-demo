@@ -22,7 +22,7 @@ export default defineComponent({
   },
   emits: ['confirm'],
   setup (props, { emit, attrs }) {
-    console.log(attrs);
+    // console.log(attrs);
     const handleConfirm = () => {
       emit('confirm', 'confirm111');
     };
