@@ -1,6 +1,7 @@
 import { ref, Ref, watch } from 'vue';
 export * from './useExternal';
 export * from './useVirtualList';
+// export { default as EventTrack } from './eventTrack/index'; // !相当于把里面的default别名为EventTrack，export出去；再通过{ EventTrack }引入
 
 // !用来处理值防抖。
 export function useDebounce<T> (valueRef: Ref<T>, delay: number) {
