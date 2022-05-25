@@ -12,7 +12,7 @@ app.use(ElementPlus as any);
 app.config.globalProperties.$http = axios;
 app.mount('#app');
 
-// type Foo = {
+// type Foo = {1
 //   a: number;
 //   b?: string;
 //   c: boolean;
