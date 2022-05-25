@@ -7,6 +7,8 @@
         <div>footer</div>
       </template>
     </HelloWorld>
+    <el-button type="primary">主要按钮</el-button>
+    <!-- <bb-button type="primary">主要按钮</bb-button> -->
   </div>
 </template>
 
