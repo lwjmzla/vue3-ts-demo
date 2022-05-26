@@ -5,7 +5,7 @@ import store, { key } from './store';
 import ElementPlus from 'element-plus';
 import axios from 'axios';
 import 'element-plus/dist/index.css';
-// import bbui from 'bb-ui-vue3/lib/index.js';
+// import bbui from 'bb-ui-vue3';
 
 const app = createApp(App);
 app.use(store, key).use(router);
