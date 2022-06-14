@@ -3,6 +3,7 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </div>
+  <test></test>
   <router-view v-slot="{ Component }">
     <transition name="slide-right" mode="out-in">
       <keep-alive>

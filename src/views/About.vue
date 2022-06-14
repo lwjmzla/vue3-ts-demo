@@ -2,6 +2,14 @@
   <div class="demo-date-picker">
     <div class="block">
       <span class="demonstration">Default</span>
+      <el-date-picker
+        v-model="value1"
+        type="datetimerange"
+        range-separator="To"
+        start-placeholder="Start date"
+        end-placeholder="End date"
+        value-format="YYYY-MM-DD HH:mm:ss"
+      />
       <!-- <el-date-picker v-model="value1" type="date" placeholder="Pick a day" /> -->
       <demo
         class="my-demo"
@@ -65,7 +73,7 @@ export default defineComponent({
     setup
   },
   setup () {
-    const value1 = ref('');
+    const value1 = ref(['2022-06-06 10:58:03', '2022-06-13 10:58:03']);
     const value2 = ref('');
     const value3 = ref('');
     const isShow = ref(true);

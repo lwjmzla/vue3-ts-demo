@@ -7,6 +7,7 @@
         <div>footer</div>
       </template>
     </HelloWorld>
+    <Bbui/>
     <el-button type="primary">主要按钮</el-button>
     <!-- <bb-button type="primary">主要按钮</bb-button> -->
   </div>
@@ -15,13 +16,16 @@
 <script lang="ts">
 import { defineComponent, getCurrentInstance, onMounted, watchEffect, watchPostEffect } from 'vue';
 import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import Bbui from '@/components/bbui.vue';
 
 export default defineComponent({
   name: 'Home',
   components: {
-    HelloWorld
+    HelloWorld,
+    Bbui
   },
   created () {
+    console.log(1);
     type T0 = Exclude<'a' | 'b' | 'c', 'a' |'d'>;
     // !前面的有包含后面的么？有交集，则never（删除掉），返回剩下的值 type Exclude<T, U> = T extends U ? never : T;
     type T1 = Extract<'a' | 'b' | 'c', 'a' |'d'>; // !前面的有包含后面的么？返回交集  type Extract<T, U> = T extends U ? T : never;

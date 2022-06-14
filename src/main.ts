@@ -6,10 +6,14 @@ import ElementPlus from 'element-plus';
 import axios from 'axios';
 import 'element-plus/dist/index.css';
 // import bbui from 'bb-ui-vue3';
+import bbui from '@/outputFile/lib/index.js';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import lwjui from './my-lib-es.js';
 
 const app = createApp(App);
 app.use(store, key).use(router);
-app.use(ElementPlus as any);
+app.use(ElementPlus as any).use(bbui).use(lwjui);
 app.config.globalProperties.$http = axios;
 app.mount('#app');
 
