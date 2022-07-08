@@ -5,15 +5,23 @@ import store, { key } from './store';
 import ElementPlus from 'element-plus';
 import axios from 'axios';
 import 'element-plus/dist/index.css';
-// import bbui from 'bb-ui-vue3';
-import bbui from '@/outputFile/lib/index.js';
+import bbui from 'bb-ui-vue3';
+// import bbui from '@/outputFile/lib/index.js';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import lwjui from './my-lib-es.js';
+// import lwjui from './my-lib-es.js';
+import Viewer from '@sufangyu/v-viewer';
+import 'viewerjs/dist/viewer.css';
+
+// !<el-icon><plus :size="80" /></el-icon> //icon组件
+import * as ElementPlusIconsVue from '@element-plus/icons-vue';
 
 const app = createApp(App);
 app.use(store, key).use(router);
-app.use(ElementPlus as any).use(bbui).use(lwjui);
+app.use(ElementPlus as any).use(bbui).use(Viewer);
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component);
+}
 app.config.globalProperties.$http = axios;
 app.mount('#app');
 
