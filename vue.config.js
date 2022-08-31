@@ -1,4 +1,6 @@
 const { defineConfig } = require('@vue/cli-service');
+const pkg = require("./package.json");
+console.log(pkg)
 module.exports = defineConfig({
   transpileDependencies: [/bb-ui-vue3/],
   configureWebpack: (config) => {
