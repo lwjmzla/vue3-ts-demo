@@ -12,3 +12,18 @@ module.exports = defineConfig({
     sourceMap: true
   }
 });
+
+// import { execa } from 'execa';
+// import childProcess from 'child_process';
+
+// // execa 返回的 promise 与对象解析。
+// const { stdout } = await execa('echo', ['Process execution for humans']);
+// console.log(stdout);
+
+// const getGitRevParseCommitId = async (short = true) => {
+//   const { stdout } = await execa('git', ['rev-parse', `${short ? '--short' : ''}`, 'HEAD']);
+//   return stdout;
+// };
+
+// console.log(await getGitRevParseCommitId());
+// console.log(childProcess.execSync('git rev-parse --short HEAD').toString());
