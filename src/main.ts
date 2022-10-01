@@ -6,6 +6,7 @@ import ElementPlus from 'element-plus';
 import axios from 'axios';
 import 'element-plus/dist/index.css';
 import bbui from 'bb-ui-vue3';
+import './test';
 // import bbui from '@/outputFile/lib/index.js';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore

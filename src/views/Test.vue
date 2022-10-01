@@ -1,6 +1,7 @@
 <template>
   <div class="test">
     <el-button type="primary" @click="handleOpenDrawer">打开</el-button>
+    <el-button type="primary" @click="handleRouter">跳转</el-button>
     <bb-drawer-move
       ref='testDrawer'
       :size='700'
@@ -26,16 +27,32 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, isReactive, reactive, toRefs } from 'vue';
+// import router from '@/router';
+import { useRouter, useRoute } from 'vue-router';
 // !后续直接从BBUI引入
 interface BBDrawerMove {
   open(): void;
   close(): void;
   getCurrentWidth(): number;
 }
+interface State {
+  name: string;
+  age: number;
+}
 export default defineComponent({
   name: 'Test',
   setup () {
+    const router = useRouter();
+    const route = useRoute();
+    console.log(route);
+    console.log(isReactive(route));
+    console.log(route.params.id);
+    const state = reactive<State>({
+      name: 'lwj',
+      age: 18
+    });
+    console.log(state);
     const testDrawer = ref<BBDrawerMove>();
     const handleOpenDrawer = () => {
       testDrawer.value?.open();
@@ -48,12 +65,22 @@ export default defineComponent({
     const handleUpdate = (images:string[]) => {
       console.log(images);
     };
+    const handleRouter = () => {
+      router.push({
+        name: 'TestId',
+        params: { id: 1 },
+        query: { name: 'lwj' }
+      });
+      // router.push('/test/1');
+    };
     return {
+      ...toRefs(state),
       imagesValue,
       handleUpdate,
       testDrawer,
       handleOpenDrawer,
-      handleCloseDrawer
+      handleCloseDrawer,
+      handleRouter
     };
   }
 });

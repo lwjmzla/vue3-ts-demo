@@ -12,9 +12,11 @@
     "@sufangyu/v-viewer": "^2.0.0",
     "axios": "^0.27.2",
     "bb-ui-vue3": "^0.1.4",
+    "class-transformer": "^0.5.1",
     "dayjs": "^1.11.3",
     "element-plus": "2.1.8",
     "lwj-ui": "^0.2.3",
+    "reflect-metadata": "^0.1.13",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"

@@ -20,6 +20,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/test',
     name: 'Test',
     component: Test
+  },
+  {
+    path: '/test/:id',
+    name: 'TestId',
+    component: Test
   }
 ];
 
