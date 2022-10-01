@@ -1,6 +1,6 @@
 
 <script lang="tsx">
-import { defineComponent, ref, mergeProps } from 'vue';
+import { defineComponent, ref, mergeProps, watchEffect, getCurrentInstance, withModifiers, onMounted } from 'vue';
 import { useStore } from 'vuex';
 import { key } from '@/store/index';
 
@@ -29,11 +29,34 @@ export default defineComponent({
       attrs
     );
     console.log(newAttrs);
+    /**
+     * !sadsadwqesad
+     */
+    const stop = watchEffect((onCleanup) => { //! onCleanup清理回调(也是函数)会在该副作用下一次执行前被调用，可以用来清理无效的副作用
+      console.log('num.value:', num.value);
+      let timer:any = setTimeout(() => {
+        console.log('timer');
+      }, 2000);
+      onCleanup(() => {
+        clearTimeout(timer);
+        timer = null;
+      });
+    });
+    const { proxy } = getCurrentInstance() as any;
+    const hello = ref<HTMLElement | null>(null);
+    watchEffect(() => {
+      console.log('watchEffect--hello', proxy.$refs.hello); // !ref="hello"生效 像onMounted那样获取到DOM或者组件实例
+      console.log('watchEffect ref hello', hello.value); // ! ref={hello}生效
+    }, { flush: 'post' });
+
+    onMounted(() => {
+      console.log('onMounted hello', hello.value);
+    });
 
     return () => (
-      <div>
+      <div ref={hello}>
         <div>{num.value}</div>
-        <div>{slots.default?.()}</div>
+        <div onClick={withModifiers(() => stop(), ['stop', 'prevent'])}>{slots.default?.() || 'default-hello'}</div>
         <div>{slots.footer?.()}</div>
       </div>
     );

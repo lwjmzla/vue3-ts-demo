@@ -2,7 +2,7 @@
   <div class="home" @click="add">
     <!-- <img alt="Vue logo" src="../assets/logo.png">-->
     <HelloWorld class="hello" @haha="() => {}" ref="hello" msg="Welcome to Your Vue.js + TypeScript App">
-      <div>default</div>
+      <div>stop</div>
       <template v-slot:footer>
         <div>footer</div>
       </template>
@@ -25,7 +25,7 @@ export default defineComponent({
     Bbui
   },
   created () {
-    console.log(1);
+    console.log(1); // !
     type T0 = Exclude<'a' | 'b' | 'c', 'a' |'d'>;
     // !前面的有包含后面的么？有交集，则never（删除掉），返回剩下的值 type Exclude<T, U> = T extends U ? never : T;
     type T1 = Extract<'a' | 'b' | 'c', 'a' |'d'>; // !前面的有包含后面的么？返回交集  type Extract<T, U> = T extends U ? T : never;
