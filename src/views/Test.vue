@@ -30,6 +30,7 @@
 import { defineComponent, ref, isReactive, reactive, toRefs } from 'vue';
 // import router from '@/router';
 import { useRouter, useRoute } from 'vue-router';
+import { DrawerMove } from 'lwj-lego-components';
 // !后续直接从BBUI引入
 interface BBDrawerMove {
   open(): void;
@@ -43,6 +44,9 @@ interface State {
 export default defineComponent({
   name: 'Test',
   setup () {
+    type DrawerInstance = InstanceType<typeof DrawerMove>
+    const enquiredDetailDrawer = ref<DrawerInstance | null>(null);
+    enquiredDetailDrawer.value?.open();
     const router = useRouter();
     const route = useRoute();
     console.log(route);
