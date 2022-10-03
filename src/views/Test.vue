@@ -2,7 +2,7 @@
   <div class="test">
     <el-button type="primary" @click="handleOpenDrawer">打开</el-button>
     <el-button type="primary" @click="handleRouter">跳转</el-button>
-    <bb-drawer-move
+    <!-- <bb-drawer-move
       ref='testDrawer'
       :size='700'
       cache="TEST_DRAWER"
@@ -22,7 +22,7 @@
       <template #footer>
         <el-button>确认</el-button>
       </template>
-    </bb-drawer-move>
+    </bb-drawer-move> -->
 
     <drawer-move
       ref='testDrawer'
@@ -31,7 +31,7 @@
     >
       <template #header>
         <div>123</div>
-        <el-button @click="handleCloseDrawer">关闭</el-button>
+        <el-button @click="handleCloseDrawer">关闭11</el-button>
       </template>
       <div>
         <bb-image-upload
