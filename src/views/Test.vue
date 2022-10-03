@@ -23,6 +23,28 @@
         <el-button>确认</el-button>
       </template>
     </bb-drawer-move>
+
+    <drawer-move
+      ref='testDrawer'
+      :size='700'
+      cache="TEST_DRAWER"
+    >
+      <template #header>
+        <div>123</div>
+        <el-button @click="handleCloseDrawer">关闭</el-button>
+      </template>
+      <div>
+        <bb-image-upload
+        :value="imagesValue"
+        :limit="5"
+        :size="0.5"
+        @update="handleUpdate"
+      ></bb-image-upload>
+      </div>
+      <template #footer>
+        <el-button>确认</el-button>
+      </template>
+    </drawer-move>
   </div>
 </template>
 
@@ -31,6 +53,8 @@ import { defineComponent, ref, isReactive, reactive, toRefs } from 'vue';
 // import router from '@/router';
 import { useRouter, useRoute } from 'vue-router';
 import { DrawerMove } from 'lwj-lego-components';
+// !注意使用本地包的话。1。lwj-lego-components生成软链  2.保持vue版本一致"vue": "file:../vue3-ts-demo/node_modules/vue",
+
 // !后续直接从BBUI引入
 interface BBDrawerMove {
   open(): void;
@@ -43,6 +67,7 @@ interface State {
 }
 export default defineComponent({
   name: 'Test',
+  components: { DrawerMove },
   setup () {
     type DrawerInstance = InstanceType<typeof DrawerMove>
     const enquiredDetailDrawer = ref<DrawerInstance | null>(null);

@@ -16,10 +16,11 @@ import 'viewerjs/dist/viewer.css';
 
 // !<el-icon><plus :size="80" /></el-icon> //icon组件
 import * as ElementPlusIconsVue from '@element-plus/icons-vue';
+import Lego from 'lwj-lego-components';
 
 const app = createApp(App);
 app.use(store, key).use(router);
-app.use(ElementPlus as any).use(bbui).use(Viewer);
+app.use(ElementPlus as any).use(bbui).use(Viewer).use(Lego);
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component);
 }
