@@ -52,15 +52,15 @@
 import { defineComponent, ref, isReactive, reactive, toRefs } from 'vue';
 // import router from '@/router';
 import { useRouter, useRoute } from 'vue-router';
-import { DrawerMove } from 'lwj-lego-components';
+import { DrawerMove, BBDrawerMove, LTextType } from 'lwj-lego-components';
 // !注意使用本地包的话。1。lwj-lego-components生成软链  2.保持vue版本一致"vue": "file:../vue3-ts-demo/node_modules/vue",
 
 // !后续直接从BBUI引入
-interface BBDrawerMove {
-  open(): void;
-  close(): void;
-  getCurrentWidth(): number;
-}
+// interface BBDrawerMove {
+//   open(): void;
+//   close(): void;
+//   getCurrentWidth(): number;
+// }
 interface State {
   name: string;
   age: number;
@@ -72,6 +72,8 @@ export default defineComponent({
     type DrawerInstance = InstanceType<typeof DrawerMove>
     const enquiredDetailDrawer = ref<DrawerInstance | null>(null);
     enquiredDetailDrawer.value?.open();
+    const LText = ref<LTextType | null>(null);
+    LText.value?.lclose();
     const router = useRouter();
     const route = useRoute();
     console.log(route);
