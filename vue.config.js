@@ -1,8 +1,11 @@
 const { defineConfig } = require('@vue/cli-service');
-const pkg = require("./package.json");
-console.log(pkg)
+const path = require('path');
 module.exports = defineConfig({
   transpileDependencies: [/bb-ui-vue3/],
+  chainWebpack (config) {
+    config.resolve.symlinks(false);
+    config.resolve.alias.set('vue', path.resolve('./node_modules/vue'));
+  },
   configureWebpack: (config) => {
     // 调试JS
     config.devtool = 'source-map';

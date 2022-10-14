@@ -14,8 +14,9 @@
     "bb-ui-vue3": "^0.1.6",
     "dayjs": "^1.11.3",
     "element-plus": "2.1.8",
-    "lwj-lego-components": "^1.0.5",
+    "lwj-lego-components": "^1.0.6",
     "lwj-ui": "^0.2.3",
+    "reflect-metadata": "^0.1.13",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
