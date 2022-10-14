@@ -12,7 +12,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, inject } from 'vue';
+import { defineComponent, inject, ref } from 'vue';
+import { DrawerMove } from 'lwj-lego-components';
 
 export default defineComponent({
   name: 'Demo',
@@ -22,6 +23,10 @@ export default defineComponent({
   },
   emits: ['confirm'],
   setup (props, { emit, attrs }) {
+    type DrawerInstance = InstanceType<typeof DrawerMove>
+    const enquiredDetailDrawer = ref<DrawerInstance | null>(null);
+    enquiredDetailDrawer.value?.open();
+    enquiredDetailDrawer.value?.getCurrentWidth();
     // console.log(attrs);
     const handleConfirm = () => {
       emit('confirm', 'confirm111');
