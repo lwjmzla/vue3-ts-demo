@@ -14,6 +14,7 @@
 <script lang="ts">
 import { defineComponent, inject, ref } from 'vue';
 import { DrawerMove } from 'lwj-lego-components';
+import { ElTable } from 'element-plus';
 
 export default defineComponent({
   name: 'Demo',
@@ -23,6 +24,11 @@ export default defineComponent({
   },
   emits: ['confirm'],
   setup (props, { emit, attrs }) {
+    type TypeElTable = InstanceType<typeof ElTable>
+    const tableRef = ref<TypeElTable | null>(null);
+    tableRef.value?.clearSelection();
+    tableRef.value?.toggleRowSelection([], true);
+
     type DrawerInstance = InstanceType<typeof DrawerMove>
     const enquiredDetailDrawer = ref<DrawerInstance | null>(null);
     enquiredDetailDrawer.value?.open();

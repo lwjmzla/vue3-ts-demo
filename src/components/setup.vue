@@ -81,9 +81,10 @@ const debounceValue = useDebounce(debounceCurrValue, 500);
 // const debounceFnRun = useDebounceFn(() => {
 //   debounceValue.value = debounceCurrValue.value++;
 // }, 500);
+const arr = ['i', 'b', 'a', 'i', 'b', 'u'];
 
 const { load, unload } = useExternal(
-  'https://static-cdn.ibaibu.com/vue/2.6.10/vue.min.js',
+  'https://static-cdn.' + arr.join('') + '.com/vue/2.6.10/vue.min.js',
   (el) => { console.log(el); }
 );
 

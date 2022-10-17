@@ -52,7 +52,7 @@
 import { defineComponent, ref, isReactive, reactive, toRefs } from 'vue';
 // import router from '@/router';
 import { useRouter, useRoute } from 'vue-router';
-import { DrawerMove, BBDrawerMove, LTextType } from 'lwj-lego-components';
+import { DrawerMove } from 'lwj-lego-components';
 // !注意使用本地包的话。1。lwj-lego-components生成软链  2.保持vue版本一致"vue": "file:../vue3-ts-demo/node_modules/vue",
 
 // !后续直接从BBUI引入
@@ -72,8 +72,6 @@ export default defineComponent({
     type DrawerInstance = InstanceType<typeof DrawerMove>
     const enquiredDetailDrawer = ref<DrawerInstance | null>(null);
     enquiredDetailDrawer.value?.open();
-    const LText = ref<LTextType | null>(null);
-    LText.value?.lclose();
     const router = useRouter();
     const route = useRoute();
     console.log(route);
@@ -84,7 +82,7 @@ export default defineComponent({
       age: 18
     });
     console.log(state);
-    const testDrawer = ref<BBDrawerMove>();
+    const testDrawer = ref<DrawerInstance | null>(null);
     const handleOpenDrawer = () => {
       testDrawer.value?.open();
     };
@@ -92,7 +90,7 @@ export default defineComponent({
       testDrawer.value?.close();
     };
 
-    const imagesValue = ref(['https://img.ibaibu.com/baibu_9717ef59543444c7bae1f6b257fcf1d4.png']);
+    const imagesValue = ref(['https://www.baidu.com/img/flexible/logo/pc/result.png']);
     const handleUpdate = (images:string[]) => {
       console.log(images);
     };

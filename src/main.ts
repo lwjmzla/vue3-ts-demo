@@ -20,7 +20,7 @@ import Lego from 'lwj-lego-components';
 
 const app = createApp(App);
 app.use(store, key).use(router);
-app.use(ElementPlus as any).use(bbui).use(Viewer).use(Lego);
+app.use(ElementPlus).use(bbui).use(Viewer).use(Lego as any);
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component);
 }
