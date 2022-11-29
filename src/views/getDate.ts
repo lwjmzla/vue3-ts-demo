@@ -1,9 +1,9 @@
 // !快速得到本周开始、结束日期；本月开始、结束日期；上个月开始、结束日期；本季度开始、结束日期；
 class GetDate {
-  private nowDayOfWeek: number
-  private nowDay: number
-  private nowMonth: number
-  private nowYear: number
+  private nowDayOfWeek: number;
+  private nowDay: number;
+  private nowMonth: number;
+  private nowYear: number;
 
   constructor (serverDateStr?: string) { // !date: Sat, 29 Oct 2022 15:42:03 GMT
     const diff = serverDateStr ? this.getDiffTime(serverDateStr) : 0;
