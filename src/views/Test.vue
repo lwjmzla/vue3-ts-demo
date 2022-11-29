@@ -45,14 +45,19 @@
         <el-button>确认</el-button>
       </template>
     </drawer-move>
+    {{name}}{{age}}
+    <p>{{state.name}}{{state.age}}</p>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, isReactive, reactive, toRefs } from 'vue';
+import { defineComponent, ref, isReactive, reactive, toRefs, onMounted } from 'vue';
+import GetDate from './getDate';
 // import router from '@/router';
 import { useRouter, useRoute } from 'vue-router';
 import { DrawerMove } from 'lwj-lego-components';
+import bbui from '@/components/bbui.vue';
+console.log(bbui);
 // !注意使用本地包的话。1。lwj-lego-components生成软链  2.保持vue版本一致"vue": "file:../vue3-ts-demo/node_modules/vue",
 
 // !后续直接从BBUI引入
@@ -102,7 +107,37 @@ export default defineComponent({
       });
       // router.push('/test/1');
     };
+    onMounted(() => {
+      (window as any).myDate = new GetDate();
+      async function async1 () {
+        console.log(2);
+        await async2();
+        console.log(6);
+      }
+
+      async function async2 () {
+        console.log(3);
+      }
+
+      console.log(1);
+
+      setTimeout(() => {
+        console.log(8);
+      }, 0);
+
+      async1();
+
+      new Promise<void>((resolve) => {
+        console.log(4);
+        resolve();
+      }).then(() => {
+        console.log(7);
+      });
+
+      console.log(5);
+    });
     return {
+      state,
       ...toRefs(state),
       imagesValue,
       handleUpdate,
