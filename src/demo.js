@@ -1,4 +1,4 @@
-// !单例
+// !单例~
 const createStore = () => {
   const state = {};
 
