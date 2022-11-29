@@ -23,7 +23,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component);
 }
 app.config.globalProperties.$http = axios;
-app.mount('#app')
+app.mount('#app');
 
 // type Foo = {111
 //   a: number;
@@ -127,3 +127,4 @@ app.mount('#app')
 // if (valueIsModel(a)) {
 //   console.log(a.name);
 // }
+let a = 10
