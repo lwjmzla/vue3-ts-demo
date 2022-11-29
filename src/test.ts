@@ -32,4 +32,3 @@
 // console.log(user instanceof User);
 // console.log(classToPlain(user));
 console.log(1)
-console.log(2)
