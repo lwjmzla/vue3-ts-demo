@@ -47,6 +47,13 @@
     </drawer-move>
     {{name}}{{age}}
     <p>{{state.name}}{{state.age}}</p>
+    <div class="ContentVisibility">
+      <ul>
+        <li v-for="(item,index) in 1000" :key="index">
+          <ContentVisibility :book="book" :index="index"></ContentVisibility>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -57,6 +64,7 @@ import GetDate from './getDate';
 import { useRouter, useRoute } from 'vue-router';
 import { DrawerMove } from 'lwj-lego-components';
 import bbui from '@/components/bbui.vue';
+import ContentVisibility from '@/components/content-visibility.vue';
 console.log(bbui);
 // !注意使用本地包的话。1。lwj-lego-components生成软链  2.保持vue版本一致"vue": "file:../vue3-ts-demo/node_modules/vue",
 
@@ -72,7 +80,7 @@ interface State {
 }
 export default defineComponent({
   name: 'Test',
-  components: { DrawerMove },
+  components: { DrawerMove, ContentVisibility },
   setup () {
     type DrawerInstance = InstanceType<typeof DrawerMove>
     const enquiredDetailDrawer = ref<DrawerInstance | null>(null);
@@ -136,6 +144,13 @@ export default defineComponent({
 
       console.log(5);
     });
+    const book = {
+      bookCover: 'https://www.ibaibu.com/_nuxt/img/logo.735f341.png',
+      bookName: 'bookName',
+      catlog: 'catlog',
+      tags: ['A', 'B', 'C'],
+      desc: 'WELCOME TO BAIBU 拥有齐全的面料品类参数数据库,通过智能硬件+AI识别算法,快速精准匹配面料。 扫码下载APP 让/天/下/没/有/难/找/的/布 全程专人1对1服务, 交易步骤全程可控,轻松收货 ..'
+    };
     return {
       state,
       ...toRefs(state),
@@ -144,7 +159,8 @@ export default defineComponent({
       testDrawer,
       handleOpenDrawer,
       handleCloseDrawer,
-      handleRouter
+      handleRouter,
+      book
     };
   }
 });

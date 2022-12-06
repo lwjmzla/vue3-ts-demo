@@ -127,4 +127,4 @@ app.mount('#app');
 // if (valueIsModel(a)) {
 //   console.log(a.name);
 // }
-let a = 101
+const a = 101;
